@@ -1,18 +1,27 @@
 // rnfes -> untuk template react native
 import { Image, StyleSheet, Text, View } from 'react-native';
 import Logo from '../assets/logo.png';
+import { Link } from 'expo-router';
 
 const Home = () => {
   return (
     <View style={styles.container}>
       <Image source={Logo} style={styles.logo} />
 
-      <Text style={([styles.title], { color: 'red' })}>Home React Native</Text>
+      <Text style={[styles.title]}>Home React Native</Text>
       <Text style={{ marginTop: 10, marginBottom: 10 }}>Reading List App</Text>
 
       <View style={styles.card}>
         <Text>Haii, ini sebuah Card</Text>
       </View>
+
+      <Link style={[styles.link, { marginTop: 20 }]} href={'/about'}>
+        Go to About Page
+      </Link>
+
+      <Link style={styles.link} href={'/contact'}>
+        Go to Contact Page
+      </Link>
     </View>
   );
 };
@@ -38,5 +47,9 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 100,
+  },
+  link: {
+    marginVertical: 10,
+    textDecorationLine: 'underline',
   },
 });
