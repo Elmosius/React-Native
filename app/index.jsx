@@ -1,28 +1,40 @@
 // rnfes -> untuk template react native
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import Logo from '../assets/logo.png';
-import { Link } from 'expo-router';
+import Spacer from '../components/Spacer';
+import ThemedCard from '../components/ThemedCard';
+import ThemedLink from '../components/ThemedLink';
+import ThemedText from '../components/ThemedText';
+import ThemedView from '../components/ThemedView';
 
 const Home = () => {
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container}>
       <Image source={Logo} style={styles.logo} />
 
-      <Text style={[styles.title]}>Home React Native</Text>
-      <Text style={{ marginTop: 10, marginBottom: 10 }}>Reading List App</Text>
+      <ThemedText style={styles.title} title={true}>
+        Home React Native
+      </ThemedText>
+      <Spacer height={10} />
 
-      <View style={styles.card}>
-        <Text>Haii, ini sebuah Card</Text>
-      </View>
+      <ThemedText>Reading List App</ThemedText>
 
-      <Link style={[styles.link, { marginTop: 20 }]} href={'/about'}>
-        Go to About Page
-      </Link>
+      <Spacer height={20} />
 
-      <Link style={styles.link} href={'/contact'}>
-        Go to Contact Page
-      </Link>
-    </View>
+      <ThemedCard>
+        <ThemedText>Haii, ini sebuah Card</ThemedText>
+      </ThemedCard>
+
+      <Spacer height={20} />
+
+      <ThemedLink href={'/about'}>
+        <ThemedText>Go to About Page</ThemedText>
+      </ThemedLink>
+
+      <ThemedLink style={styles.link} href={'/contact'}>
+        <ThemedText>Go to Contact Page</ThemedText>
+      </ThemedLink>
+    </ThemedView>
   );
 };
 
@@ -37,12 +49,6 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: 20,
-  },
-  card: {
-    backgroundColor: '#eee',
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.1)',
-    borderRadius: 10,
-    padding: 12,
   },
   logo: {
     width: 100,

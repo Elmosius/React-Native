@@ -1,20 +1,23 @@
 import { Slot, Stack } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { Colors } from '../constans/colors';
 
 const RootLayout = () => {
+  const colorScheme = useColorScheme();
+  const theme = Colors[colorScheme] ?? Colors.light;
+
   return (
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#5f6588ff',
+          backgroundColor: theme.navBackground,
         },
         headerTitleAlign: 'center',
-        headerTintColor: 'white',
-      }}
-    >
+        headerTintColor: theme.title,
+      }}>
       <Stack.Screen name='index' options={{ headerShown: true }} />
       <Stack.Screen name='about' options={{ headerShown: true }} />
-      <Stack.Screen name='contact' options={{ headerShown: false }} />
+      <Stack.Screen name='contact' options={{ headerShown: true }} />
     </Stack>
   );
 };
