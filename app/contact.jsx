@@ -7,7 +7,7 @@ const Contact = () => {
       <Text style={styles.title}>Contact Page</Text>
 
       <Link href={'/'} style={styles.link}>
-        Back Home
+        Back Home 
       </Link>
     </View>
   );
