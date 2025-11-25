@@ -1,3 +1,4 @@
+import Entypo from '@expo/vector-icons/Entypo';
 import { StyleSheet } from 'react-native';
 import ThemedText from '../../components/ThemedText';
 import ThemedView from '../../components/ThemedView';
@@ -5,6 +6,8 @@ import ThemedView from '../../components/ThemedView';
 const Books = () => {
   return (
     <ThemedView style={styles.container}>
+      <Entypo name='book' size={24} color='white' />
+
       <ThemedText title style={styles.title}>
         List Books
       </ThemedText>
