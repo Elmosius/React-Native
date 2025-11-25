@@ -9,7 +9,7 @@ import ThemedView from '../components/ThemedView';
 
 const Home = () => {
   return (
-    <ThemedView style={styles.container}>
+    <ThemedView safe style={styles.container}>
       <Image source={Logo} style={styles.logo} />
 
       <ThemedText style={styles.title} title={true}>
