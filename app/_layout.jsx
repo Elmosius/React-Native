@@ -1,5 +1,5 @@
-import { Slot, Stack } from 'expo-router';
-import { StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { Stack } from 'expo-router';
+import { StyleSheet, useColorScheme } from 'react-native';
 import { Colors } from '../constans/colors';
 
 const RootLayout = () => {
@@ -15,6 +15,7 @@ const RootLayout = () => {
         headerTitleAlign: 'center',
         headerTintColor: theme.title,
       }}>
+      <Stack.Screen name='(auth)' options={{ headerShown: false }} />
       <Stack.Screen name='index' options={{ headerShown: true }} />
       <Stack.Screen name='about' options={{ headerShown: true }} />
       <Stack.Screen name='contact' options={{ headerShown: true }} />

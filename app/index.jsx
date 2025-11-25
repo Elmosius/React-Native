@@ -19,13 +19,19 @@ const Home = () => {
 
       <ThemedText>Reading List App</ThemedText>
 
-      <Spacer height={20} />
+      <Spacer />
 
       <ThemedCard>
         <ThemedText>Haii, ini sebuah Card</ThemedText>
       </ThemedCard>
 
-      <Spacer height={20} />
+      <Spacer />
+
+      <ThemedLink href={'/login'}>
+        <ThemedText>Go to Login Page</ThemedText>
+      </ThemedLink>
+
+      <Spacer height={10} />
 
       <ThemedLink href={'/about'}>
         <ThemedText>Go to About Page</ThemedText>

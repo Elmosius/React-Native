@@ -18,6 +18,8 @@ export const Colors = {
     iconColorFocused: '#83a0ff',
     // warna latar elemen UI (mis. cards)
     uiBackground: '#131418',
+
+    border: '#5f6571ff',
   },
 
   light: {
@@ -35,5 +37,6 @@ export const Colors = {
     iconColorFocused: '#5f6588ff',
     // warna latar elemen UI (mis. cards)
     uiBackground: '#f3f4f6',
+    border: '#040404ff',
   },
 };
