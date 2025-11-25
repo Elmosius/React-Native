@@ -10,5 +10,6 @@ export default ThemedLink;
 const styles = StyleSheet.create({
   link: {
     textDecorationLine: 'underline',
+    marginVertical: 10,
   },
 });

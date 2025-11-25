@@ -34,7 +34,7 @@ export const Colors = {
     // warna ikon default
     iconColor: '#6b7280',
     // warna ikon saat aktif / fokus
-    iconColorFocused: '#5f6588ff',
+    iconColorFocused: '#83a0ff',
     // warna latar elemen UI (mis. cards)
     uiBackground: '#f3f4f6',
     border: '#040404ff',

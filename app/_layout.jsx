@@ -14,11 +14,13 @@ const RootLayout = () => {
         },
         headerTitleAlign: 'center',
         headerTintColor: theme.title,
-      }}>
-      <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+      }}
+    >
       <Stack.Screen name='index' options={{ headerShown: true }} />
       <Stack.Screen name='about' options={{ headerShown: true }} />
       <Stack.Screen name='contact' options={{ headerShown: true }} />
+      <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+      <Stack.Screen name='(dashboard)' options={{ headerShown: false }} />
     </Stack>
   );
 };

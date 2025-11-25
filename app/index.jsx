@@ -31,13 +31,15 @@ const Home = () => {
         <ThemedText>Go to Login Page</ThemedText>
       </ThemedLink>
 
-      <Spacer height={10} />
+      <ThemedLink href={'/books'}>
+        <ThemedText>Go to dashboard Page</ThemedText>
+      </ThemedLink>
 
       <ThemedLink href={'/about'}>
         <ThemedText>Go to About Page</ThemedText>
       </ThemedLink>
 
-      <ThemedLink style={styles.link} href={'/contact'}>
+      <ThemedLink href={'/contact'}>
         <ThemedText>Go to Contact Page</ThemedText>
       </ThemedLink>
     </ThemedView>
@@ -59,9 +61,5 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 100,
-  },
-  link: {
-    marginVertical: 10,
-    textDecorationLine: 'underline',
   },
 });
