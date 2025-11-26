@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Keyboard, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
 
+import { useRouter } from 'expo-router';
 import Spacer from '../../components/Spacer';
 import ThemedButton from '../../components/ThemedButton';
 import ThemedLink from '../../components/ThemedLink';
+import ThemedLoader from '../../components/ThemedLoader';
 import ThemedText from '../../components/ThemedText';
 import ThemedTextInput from '../../components/ThemedTextInput';
 import ThemedView from '../../components/ThemedView';
@@ -12,11 +14,27 @@ import { useUser } from '../../hooks/useUser';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { user } = useUser();
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
-  const handleSubmit = () => {
-    console.info(user);
-    console.log('Login button pressed', email, password);
+  const { login } = useUser();
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      await login({ email, password });
+      router.replace('/books');
+      setError(null);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+      setEmail('');
+      setPassword('');
+    }
   };
 
   return (
@@ -32,12 +50,14 @@ const Login = () => {
         <ThemedTextInput value={password} onChangeText={setPassword} placeholder='Password' secureTextEntry />
 
         <ThemedButton onPress={handleSubmit}>
-          <Text style={{ color: '#ffffff' }}>Login</Text>
+          {loading ? <ThemedLoader /> : <Text style={{ color: '#ffffff' }}>Login</Text>}
         </ThemedButton>
 
         <ThemedLink href='/register'>
           <ThemedText style={{ textAlign: 'center' }}>Don't have an account? Register here.</ThemedText>
         </ThemedLink>
+
+        {error && <ThemedText style={styles.errorText}>{error}</ThemedText>}
       </ThemedView>
     </TouchableWithoutFeedback>
   );
@@ -56,5 +76,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 24,
     textAlign: 'center',
+  },
+  errorText: {
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'red',
+    borderRadius: 5,
+    textAlign: 'center',
+    color: 'red',
+    marginTop: 10,
   },
 });
